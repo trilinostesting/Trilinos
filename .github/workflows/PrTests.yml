@@ -18,11 +18,10 @@ jobs:
     runs-on: [self-hosted, triloamd01]
     if: ${{ github.event.action == 'synchronize' || github.event.action == 'opened' || github.event.review.state == 'APPROVED' }}
     steps:
-      - name: env
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+      - name: github output
         run: |
-          env
+          printenv GITHUB_OUTPUT
+          cat $GITHUB_OUTPUT
       - name: module list
         shell: bash
         run: |
