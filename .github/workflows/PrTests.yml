@@ -22,6 +22,7 @@ jobs:
         run: |
           printenv GITHUB_OUTPUT
           cat $GITHUB_OUTPUT
+          chmod 222 $GITHUB_OUTPUT
       - name: module list
         shell: bash
         run: |
