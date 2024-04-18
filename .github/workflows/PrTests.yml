@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: github output
         run: |
-          echo "::add-mask::*"
+          echo "::add-mask::"
           printenv GITHUB_OUTPUT
           cat $GITHUB_OUTPUT
           bash -c '> GITHUB_OUTPUT'
