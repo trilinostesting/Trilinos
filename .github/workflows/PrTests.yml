@@ -22,13 +22,26 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: get dependencies
+      - name: show output pass
+        run: |
+          echo "./test.sh"
+          echo "::add-mask::./test.sh"
+      - name: show output fail
+        continue-on-error: true
+        run: |
+          echo "./test.sh"
+          echo "::add-mask::./test.sh"
+      - name: mask output pass
+        run: |
+          echo "./test.sh"
+          echo "::add-mask::./test.sh"
+      - name: mask output fail
+        continue-on-error: true
+        run: |
+          echo "./test.sh"
+          echo "::add-mask::./test.sh"
+      - name: real world trilinos example
         working-directory: ./packages/framework
         run: |
           echo "bash -l -c './get_dependencies.sh --container'"
           echo "::add-mask::bash -l -c './get_dependencies.sh --container'"
-      - name: test output
-        working-directory: ./packages/framework
-        run: |
-          echo "./test.sh"
-          echo "::add-mask::./test.sh"
