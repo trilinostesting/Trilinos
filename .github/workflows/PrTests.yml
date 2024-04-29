@@ -41,11 +41,11 @@ jobs:
       - name: file write test
         continue-on-error: true
         run: |
-          OUTPUT=$(./test-file-write.sh)" 2>&1
+          OUTPUT=$(./test-file-write.sh) 2>&1
           echo "::add-mask::$OUTPUT"
           ls -l
       - name: real world trilinos example
-        working-directory:
+        working-directory: ./packages/framework
         run: |
-          OUTPUT=$(source ~/.bashrc && ./get_dependencies.sh --container 2>&1)
+          OUTPUT=$(source ~/.bash_profile && ./get_dependencies.sh --container 2>&1)
           echo "::add-mask::$OUTPUT"
