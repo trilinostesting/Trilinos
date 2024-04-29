@@ -39,7 +39,7 @@ jobs:
       - name: file write test
         continue-on-error: true
         run: |
-          ./test-file-write.sh) > /dev/null 2>&1
+          ./test-file-write.sh > /dev/null 2>&1
       - name: real world trilinos example
         working-directory: ./packages/framework
         run: |
