@@ -25,14 +25,10 @@ jobs:
       - name: get dependencies
         working-directory: ./packages/framework
         run: |
-          bash -l -c "./get_dependencies.sh --container"
-      - name: get dependencies
+          echo "bash -l -c './get_dependencies.sh --container'"
+          echo "::add-mask::bash -l -c './get_dependencies.sh --container'"
+      - name: test output
         working-directory: ./packages/framework
         run: |
-          bash -l -c "./get_dependencies.sh --container"
-          bash -l -c "echo ::add-mask::./get_dependencies.sh --container"
-      - name: get dependencies
-        working-directory: ./packages/framework
-        run: |
-          echo "./get_dependencies.sh --container"
-          echo "::add-mask::./get_dependencies.sh --container"
+          echo "./test.sh"
+          echo "::add-mask::./test.sh"
