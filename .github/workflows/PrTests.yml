@@ -31,21 +31,16 @@ jobs:
           ./test-fail.sh
       - name: mask output pass
         run: |
-          OUTPUT=$(./test-pass.sh)
-          echo "::add-mask::$OUTPUT"
+          ./test-pass.sh > /dev/null 2>&1
       - name: mask output fail
         continue-on-error: true
         run: |
-          OUTPUT=$(./test-fail.sh)
-          echo "::add-mask::$OUTPUT"
+          ./test-fail.sh > /dev/null 2>&1
       - name: file write test
         continue-on-error: true
         run: |
-          OUTPUT=$(./test-file-write.sh) 2>&1
-          echo "::add-mask::$OUTPUT"
-          ls -l
+          ./test-file-write.sh) > /dev/null 2>&1
       - name: real world trilinos example
         working-directory: ./packages/framework
         run: |
-          OUTPUT=$(source ~/.bash_profile && ./get_dependencies.sh --container 2>&1)
-          echo "::add-mask::$OUTPUT"
+          source ~/.bash_profile && ./get_dependencies.sh --container > /dev/null 2>&1
