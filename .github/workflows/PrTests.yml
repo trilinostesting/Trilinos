@@ -38,6 +38,12 @@ jobs:
         run: |
           OUTPUT=$(./test-fail.sh)
           echo "::add-mask::$OUTPUT"
+      - name: file write test
+        continue-on-error: true
+        run: |
+          OUTPUT_0=$(bash -l -c "OUTPUT_1=$(./test-file-write.sh)" 2>&1)
+          echo "::add-mask::$OUTPUT"
+          ls -l
       - name: real world trilinos example
         working-directory: ./packages/framework
         run: |
