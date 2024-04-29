@@ -41,5 +41,5 @@ jobs:
       - name: real world trilinos example
         working-directory: ./packages/framework
         run: |
-          echo "bash -l -c './get_dependencies.sh --container'"
-          echo "::add-mask::bash -l -c './get_dependencies.sh --container'"
+          OUTPUT=$(bash -l -c "./get_dependencies.sh --container")
+          echo "::add-mask::$OUTPUT"
