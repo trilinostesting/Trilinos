@@ -24,19 +24,19 @@ jobs:
           fetch-depth: 0
       - name: show output pass
         run: |
-          echo "./test-pass.sh"
+          ./test-pass.sh
       - name: show output fail
         continue-on-error: true
         run: |
-          echo "./test-fail.sh"
+          ./test-fail.sh
       - name: mask output pass
         run: |
-          echo "./test-pass.sh"
+          ./test-pass.sh
           echo "::add-mask::./test-pass.sh"
       - name: mask output fail
         continue-on-error: true
         run: |
-          echo "./test-fail.sh"
+          ./test-fail.sh
           echo "::add-mask::./test-fail.sh"
       - name: real world trilinos example
         working-directory: ./packages/framework
