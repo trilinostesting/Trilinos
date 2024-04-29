@@ -25,12 +25,10 @@ jobs:
       - name: show output pass
         run: |
           echo "./test.sh"
-          echo "::add-mask::./test.sh"
       - name: show output fail
         continue-on-error: true
         run: |
           echo "./test.sh"
-          echo "::add-mask::./test.sh"
       - name: mask output pass
         run: |
           echo "./test.sh"
