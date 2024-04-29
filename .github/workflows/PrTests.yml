@@ -18,6 +18,10 @@ jobs:
     runs-on: [self-hosted, triloamd01]
     if: ${{ github.event.action == 'synchronize' || github.event.action == 'opened' || github.event.review.state == 'APPROVED' }}
     steps:
+      - name: Clone trilinos
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: show output pass
         run: |
           echo "./test-pass.sh"
