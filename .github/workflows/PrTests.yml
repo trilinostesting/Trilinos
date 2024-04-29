@@ -31,13 +31,13 @@ jobs:
           ./test-fail.sh
       - name: mask output pass
         run: |
-          ./test-pass.sh
-          echo "::add-mask::./test-pass.sh"
+          OUTPUT=$(./test-pass.sh)
+          echo "::add-mask::$OUTPUT"
       - name: mask output fail
         continue-on-error: true
         run: |
-          ./test-fail.sh
-          echo "::add-mask::./test-fail.sh"
+          OUTPUT=$(./test-fail.sh)
+          echo "::add-mask::$OUTPUT"
       - name: real world trilinos example
         working-directory: ./packages/framework
         run: |
