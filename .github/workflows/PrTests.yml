@@ -40,6 +40,9 @@ jobs:
         continue-on-error: true
         run: |
           ./test-file-write.sh > /dev/null 2>&1
+      - name: cat file written
+        run: |
+          ls -l file.txt
       - name: real world trilinos example
         working-directory: ./packages/framework
         run: |
