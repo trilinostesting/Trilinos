@@ -21,5 +21,9 @@ jobs:
     runs-on: [self-hosted, at2_runner0]
     uses:
       ./.github/workflows/gcc.yml
-
-  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo "hello world"
+        run: |
+          echo "hello world"
