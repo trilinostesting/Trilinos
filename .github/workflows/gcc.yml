@@ -1,10 +1,10 @@
-name: gcc-101.011.1
+name: gcc-101-011-1
 
 on:
   workflow_call
 
 jobs:
-  gcc-101.011.1:
+  gcc-101-011-1:
     runs-on: [self-hosted, triloamd01]
     steps:
       - name: echo "hello world"

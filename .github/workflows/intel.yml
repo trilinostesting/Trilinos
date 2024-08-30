@@ -1,10 +1,10 @@
-name: intel-19.123.423version12.69
+name: intel-19-123-423version12-69
 
 on:
   workflow_call
 
 jobs:
-  intel-19.123.423version12.69:
+  intel-19-123-423version12-69:
     runs-on: [self-hosted, triloamd01]
     steps:
       - name: echo "hello world"
