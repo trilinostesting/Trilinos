@@ -1,0 +1,10 @@
+name: gcc-101.011.1
+
+on:
+  workflow_call
+
+jobs:
+  gcc-101.011.1:
+    steps:
+      - name: echo "hello world"
+        run: echo "hello world"
