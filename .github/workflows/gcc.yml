@@ -5,6 +5,7 @@ on:
 
 jobs:
   gcc-101.011.1:
+    runs-on: [self-hosted, triloamd01]
     steps:
       - name: echo "hello world"
         run: echo "hello world"

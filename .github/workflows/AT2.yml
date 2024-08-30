@@ -13,17 +13,19 @@ on:
 permissions:
   contents: read
 
+# Cancels any in progress 'workflow' associated with this PR
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   gcc:
-    runs-on: [self-hosted, at2_runner0]
     uses:
       ./.github/workflows/intel.yml
   intel:
-    runs-on: [self-hosted, at2_runner0]
     uses:
       ./.github/workflows/gcc.yml
   test:
-    runs-on: ubuntu-latest
     steps:
       - name: echo "hello world"
         run: |
