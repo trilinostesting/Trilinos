@@ -19,15 +19,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  gcc:
-    uses:
-      ./.github/workflows/intel.yml
-  intel:
-    uses:
-      ./.github/workflows/gcc.yml
   test:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, triloamd01]
     steps:
       - name: echo "hello world"
         run: |
-          echo "hello world"
+          while true; do
+            date=$(date +"%H:%M:%S")
+            echo Current date is $date
+            sleep 1
+          done
